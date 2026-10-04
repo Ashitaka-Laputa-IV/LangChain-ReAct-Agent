@@ -3,7 +3,6 @@
 # LangChain ReAct Agent
 
 **基于 LangChain / LangGraph 的 ReAct Agent 智能客服系统**
-A ReAct Agent customer-service system with RAG, tool calling and a Streamlit UI
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/LangChain-0.3-1C3C3C?style=flat-square&logo=langchain&logoColor=white)](https://www.langchain.com/)
@@ -11,39 +10,37 @@ A ReAct Agent customer-service system with RAG, tool calling and a Streamlit UI
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.40-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](./LICENSE)
 
+[中文](README.md) | [English](README.en.md)
+
 </div>
 
 ---
 
-## Introduction | 项目简介
+## 项目简介
 
 基于 LangChain 实现的 **ReAct（Reasoning + Acting）Agent**，集成 RAG 检索增强、多工具调用与动态提示词切换。系统根据用户意图自动判断任务类型（知识问答 / 报告生成），调用合适的工具与知识库完成推理，并通过 Streamlit 流式界面实时展示 Agent 的思考与执行过程。
 
-An intelligent agent built on the **ReAct** paradigm (Reasoning + Acting), combining RAG retrieval, multi-tool calling and dynamic prompt switching. The agent infers the task type from user intent, invokes the appropriate tools and knowledge base, and streams its reasoning chain live in a Streamlit UI.
 
-演示场景为扫地机器人智能客服。
-*Demo scenario: smart customer service for a robot vacuum.*
-
-## Demo | 效果展示
+## 效果展示
 
 <div align="center">
 
-<img src="assets/chat1.png" alt="RAG Q&A" width="85%">
+<img src="assets/chat1.png" alt="RAG Q&A" width="720">
 <br><em>图 1 · 普通问答 — RAG 检索知识库回复</em>
 
 <br><br>
 
-<img src="assets/chat2.png" alt="Tool calling" width="85%">
+<img src="assets/chat2.png" alt="Tool calling" width="720">
 <br><em>图 2 · Agent 工具调用 — 实时展示推理与工具执行链路</em>
 
 <br><br>
 
-<img src="assets/chat3.png" alt="Tool call details" width="85%">
+<img src="assets/chat3.png" alt="Tool call details" width="720">
 <br><em>图 3 · 工具调用详情 — 多步推理与中间结果可视化</em>
 
 </div>
 
-## Architecture | 技术架构
+## 技术架构
 
 ```
                     用户输入 (Streamlit)
@@ -70,7 +67,7 @@ An intelligent agent built on the **ReAct** paradigm (Reasoning + Acting), combi
       └────────────┘    └──────────────┘    └──────────────┘
 ```
 
-### Features | 核心特性
+### 核心特性
 
 | 特性 | 说明 |
 |------|------|
@@ -81,7 +78,7 @@ An intelligent agent built on the **ReAct** paradigm (Reasoning + Acting), combi
 | **流式对话界面** | Streamlit 构建，支持流式逐字输出、历史消息留存、Agent 推理过程可见 |
 | **模块化结构** | Agent / RAG / Model / Tools / Middleware 独立模块，YAML 配置驱动 |
 
-## Tech Stack | 技术栈
+## 技术栈
 
 | 层级 | 技术 |
 |------|------|
@@ -92,7 +89,7 @@ An intelligent agent built on the **ReAct** paradigm (Reasoning + Acting), combi
 | 前端 | Streamlit |
 | 配置 | YAML 驱动（Agent / RAG / Chroma / Prompts） |
 
-## Quick Start | 快速开始
+## 快速开始
 
 ### 环境要求
 
@@ -146,7 +143,7 @@ streamlit run app.py
 | 如果机器人无法正常回充，该如何处理？ | 知识库故障排查 |
 | 请根据用户数据生成一份个性化使用报告 | 报告生成 + 工具调用 |
 
-## Project Structure | 项目结构
+## 项目结构
 
 ```
 LangChain-ReAct-Agent/
@@ -188,7 +185,7 @@ LangChain-ReAct-Agent/
 └── README.md
 ```
 
-## Configuration | 配置说明
+## 配置说明
 
 项目通过 `config/` 目录下的 YAML 文件统一管理配置：
 
