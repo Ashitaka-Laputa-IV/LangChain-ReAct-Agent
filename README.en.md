@@ -100,8 +100,16 @@ cd LangChain-ReAct-Agent
 
 ### 2. Install dependencies
 
+All dependencies are declared in `pyproject.toml` — pick one:
+
 ```bash
-pip install -r requirements.txt
+# Option 1: uv (recommended — creates .venv and uv.lock)
+uv sync
+
+# Option 2: pip + venv
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install .
 ```
 
 ### 3. Configure the API key
@@ -176,7 +184,7 @@ LangChain-ReAct-Agent/
 ├── data/                           # Knowledge-base documents (robot vacuum)
 ├── assets/                         # Screenshots
 ├── app.py                          # Streamlit entry point
-├── requirements.txt
+├── pyproject.toml
 └── README.md
 ```
 

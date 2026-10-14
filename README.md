@@ -94,8 +94,16 @@ cd LangChain-ReAct-Agent
 
 ### 2. 安装依赖
 
+依赖统一声明在 `pyproject.toml`，二选一：
+
 ```bash
-pip install -r requirements.txt
+# 方式一：uv（推荐，自动创建 .venv 与 uv.lock）
+uv sync
+
+# 方式二：pip + venv
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install .
 ```
 
 ### 3. 配置 API Key
@@ -170,7 +178,7 @@ LangChain-ReAct-Agent/
 ├── data/                           # 知识库文档（扫地机器人相关）
 ├── assets/                         # 效果展示截图
 ├── app.py                          # Streamlit 应用入口
-├── requirements.txt
+├── pyproject.toml
 └── README.md
 ```
 
