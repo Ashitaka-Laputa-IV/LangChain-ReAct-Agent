@@ -48,31 +48,18 @@ Demo scenario: customer service for a robot vacuum.
 
 ## Architecture
 
-```
-                    User input (Streamlit)
-                            │
-                            ▼
-        ┌───────────────────────────────────────────┐
-        │               ReAct Agent                 │
-        │                                            │
-        │   ┌──────────┐     ┌──────────────────┐   │
-        │   │ Thought  │────▶│     Action       │   │
-        │   │ (reason) │     │ (tools / RAG)    │   │
-        │   └────┬─────┘     └────────┬─────────┘   │
-        │        ▲                    │             │
-        │        └──── Observation ◀──┘             │
-        │                                            │
-        │   Middleware: tool monitoring · dynamic    │
-        │   prompt switching                          │
-        └───────────────────────────────────────────┘
-             │                  │                  │
-             ▼                  ▼                  ▼
-      ┌────────────┐    ┌──────────────┐    ┌──────────────┐
-      │    RAG     │    │    Tools     │    │    Prompt    │
-      │   Chroma   │    │ weather /    │    │   dynamic    │
-      │  retrieval │    │ user data /  │    │   template   │
-      │            │    │ report       │    │   manager    │
-      └────────────┘    └──────────────┘    └──────────────┘
+```mermaid
+flowchart TD
+    U["User input (Streamlit)"] --> AG
+    subgraph AG["ReAct Agent · Middleware: tool monitoring + dynamic prompt switching"]
+        direction LR
+        T["Thought (reasoning)"] --> ACT["Action (tools / RAG)"]
+        ACT --> OBS["Observation"]
+        OBS --> T
+    end
+    AG --> RAG["RAG<br/>Chroma vector retrieval"]
+    AG --> TOOLS["Tools<br/>weather / user data / report"]
+    AG --> PROMPT["Prompt<br/>dynamic template switching"]
 ```
 
 ### Features
